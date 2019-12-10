@@ -3,34 +3,34 @@
 #include<conio.h>
 #include<string>
 using namespace std;
-bool open_letter(char, string, string&);
-string InputGuessWord();
+bool open_letter(char, string, string&); // Function declaration of bool tpye which takes three para 
+string InputGuessWord(); // Function declaration which inputs a guess word
 
 int main()
 {
-	system("color 0a");
-	const int attempt = 8;
-	char letter;
-	int guesses = 0;
-	string word;
-	string my_wrd = "";
+	system("color 0a"); // changes text color in cmd
+	const int attempt = 8; // Intially attempt is assigned with value of 8
+	char letter; // variable letter of char type which stores guess letter
+	int guesses = 0; // initially no. of guesses is zero
+	string word; // variable string which stores guess word
+	string my_wrd = ""; // variable my_wrd which displayes hyphen and guessed words
 	cout << "--------------------------------------" << endl;
 	cout << "\n\t\tHangman\n" << endl;
 	cout << "--------------------------------------" << endl << endl;
 	cout << "Note : Enter word in small letters." << endl;
-	word = InputGuessWord();
-	for (int i = 0; i < word.length(); i++)
+	word = InputGuessWord(); // taking input of guess word
+	for (int i = 0; i < word.length(); i++) // for loop which assign var my_wrd with hyphens equal to word length
 		my_wrd += "-";
 	cout << endl;
 	cout << "\nEnter one letter in one time:" << endl;
 	
-	while (guesses < attempt)
+	while (guesses < attempt) // loops continue as long is guess is less than attempt
 	{
 		cout << my_wrd<<endl;
 		cout << "\nWhat is the letter:";
 		cin >> letter;
-		bool same_letter = open_letter(letter, word, my_wrd);
-		if (same_letter)
+		bool same_letter = open_letter(letter, word, my_wrd); // variable same_letter bool type 
+		if (same_letter) // if same_letter is 1 i.e true execute this
 		{
 			cout << "Guessed Correctly! Now carry on guess more:" << endl;
 		}
